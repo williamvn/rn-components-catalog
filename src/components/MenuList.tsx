@@ -12,8 +12,11 @@ interface MenuProps {
 export const MenuList = ({ menuItems, title }: MenuProps) => {
     const renderMenuItem = (item: MenuOption) => {
         return <View style={styles.option}>
-            <Icon name={item.icon} size={30} color={"#949292"}/>
-            <Text>{item.name}</Text>
+            <View style={styles.option}>
+                <Icon name={item.icon} size={20} color={"#949292"}  style={{marginRight: 10}}/>
+                <Text style={globalStyles.label}>{item.name}</Text>
+            </View>
+            <Icon name="chevron-forward-outline" color={"#949292"}></Icon>
         </View>
     }
 
@@ -30,6 +33,7 @@ export const MenuList = ({ menuItems, title }: MenuProps) => {
                 renderItem={({ item }) => renderMenuItem(item)}
                 keyExtractor={(item) => item.name}
                 ListHeaderComponent={() => listHeader()}
+                ItemSeparatorComponent={() => <View style={{ borderBottomWidth: 1, opacity: 0.4, borderColor: "gray" }}></View>}
             />
         </View>
     )
@@ -38,6 +42,8 @@ export const MenuList = ({ menuItems, title }: MenuProps) => {
 const styles = StyleSheet.create({
     option: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        flex: 1,
+        marginVertical: 2.5,
     }
 })

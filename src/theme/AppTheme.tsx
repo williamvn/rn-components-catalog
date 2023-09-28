@@ -2,6 +2,10 @@ import { StyleSheet } from "react-native";
 
 export const globalStyles = StyleSheet.create({
     textHeader: {
-        fontSize: 30
+        fontSize: 30,
+        color: "black"
+    },
+    label: {
+        color: "#949292"
     }
 });

@@ -12,12 +12,12 @@ export const HomeScreen = () => {
     },
     {
       name: "Inputs",
-      icon: "home-outline",
+      icon: "document-text-outline",
       component: "SomeComponent"
     },
     {
       name: "Forms",
-      icon: "car-outline",
+      icon: "cube-outline",
       component: "SomeComponent"
     },
   ]
