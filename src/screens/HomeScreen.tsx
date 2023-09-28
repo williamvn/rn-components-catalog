@@ -1,7 +1,7 @@
 import React from 'react'
 import { MenuList } from '../components/MenuList';
 import { SafeAreaView } from 'react-native';
-import { MenuOption } from '../types/menuOption';
+import { MenuOption } from '../types/MenuOption';
 
 export const HomeScreen = () => {
   const menuItems: MenuOption[] = [

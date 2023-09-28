@@ -2,7 +2,7 @@ import React from 'react'
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import Icon from "react-native-vector-icons/Ionicons";
 import { globalStyles } from '../theme/AppTheme';
-import { MenuOption } from '../types/menuOption';
+import { MenuOption } from '../types/MenuOption';
 
 interface MenuProps {
     menuItems: MenuOption[];
