@@ -14,7 +14,7 @@ export const MenuList = ({ menuItems, title }: MenuProps) => {
     const navigation = useNavigation<any>();
 
     const renderMenuItem = (item: MenuOption) => {
-        return <TouchableOpacity activeOpacity={0.2} onPress={() => navigation.navigate('Animation101')}>
+        return <TouchableOpacity activeOpacity={0.2} onPress={() => navigation.navigate(item.component)}>
             <View style={styles.displayRowCenter}>
                 <View style={[styles.option, styles.displayRowCenter]}>
                     <Icon name={item.icon} size={20} color={"#949292"} style={{ marginRight: 10 }} />

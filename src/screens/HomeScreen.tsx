@@ -8,7 +8,12 @@ export const HomeScreen = () => {
     {
       name: "Animation 101",
       icon: "rocket-outline",
-      component: "AnimationScreen"
+      component: "Animation101"
+    },
+    {
+      name: "Animation (Draggable View)",
+      icon: "move-outline",
+      component: "DraggableBox"
     },
     {
       name: "Inputs",
