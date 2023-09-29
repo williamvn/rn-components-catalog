@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { Animated, Button, Easing, StyleSheet, View } from 'react-native'
+import { globalStyles } from '../theme/AppTheme';
 
 export const Animation101Screen = () => {
   const opacity = useRef(new Animated.Value(0)).current;
@@ -14,7 +15,7 @@ export const Animation101Screen = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.centerContainer}>
       <Animated.View style={{ ...styles.purpleBox, opacity: opacity, transform: [{ translateY: top }] }}></Animated.View>
       <Button title={toValue ? 'Fade In' : 'Fade Out'} onPress={toggleFade} />
     </View>
@@ -22,11 +23,6 @@ export const Animation101Screen = () => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   purpleBox: {
     backgroundColor: '#8A2BE2',
     width: 100,

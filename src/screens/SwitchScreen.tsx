@@ -8,7 +8,7 @@ export const SwitchScreen = () => {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   
     return (
-      <View style={styles.container}>
+      <View style={[globalStyles.centerContainer, styles.displayRow]}>
         <Switch
           trackColor={{false: "#CCCCCC", true: '#4CAF50'}}
           thumbColor={isEnabled ? 'white' : '#f4f3f4'}
@@ -22,10 +22,7 @@ export const SwitchScreen = () => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+    displayRow: {
         flexDirection: 'row'
     }
 })

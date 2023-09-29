@@ -7,5 +7,10 @@ export const globalStyles = StyleSheet.create({
     },
     label: {
         color: "#949292"
-    }
+    },
+    centerContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+      },
 });

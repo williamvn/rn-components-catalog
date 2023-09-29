@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { Animated, PanResponder, StyleSheet, Text, View } from 'react-native'
+import { globalStyles } from '../theme/AppTheme';
 
 export const DraggableBoxScreen = () => {
   const pan = useRef(new Animated.ValueXY()).current;
@@ -13,18 +14,13 @@ export const DraggableBoxScreen = () => {
   });
 
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.centerContainer}>
       <Animated.View {...panResponder.panHandlers} style={[styles.blueBox, pan.getLayout()]}></Animated.View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   blueBox: {
     backgroundColor: "#A6E7FF",
     width: 100,
