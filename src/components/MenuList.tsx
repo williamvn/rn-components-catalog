@@ -1,8 +1,9 @@
 import React from 'react'
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Icon from "react-native-vector-icons/Ionicons";
 import { globalStyles } from '../theme/AppTheme';
 import { MenuOption } from '../types/MenuOption';
+import { useNavigation } from '@react-navigation/native';
 
 interface MenuProps {
     menuItems: MenuOption[];
@@ -10,14 +11,18 @@ interface MenuProps {
 }
 
 export const MenuList = ({ menuItems, title }: MenuProps) => {
+    const navigation = useNavigation<any>();
+
     const renderMenuItem = (item: MenuOption) => {
-        return <View style={styles.option}>
-            <View style={styles.option}>
-                <Icon name={item.icon} size={20} color={"#949292"}  style={{marginRight: 10}}/>
-                <Text style={globalStyles.label}>{item.name}</Text>
+        return <TouchableOpacity activeOpacity={0.2} onPress={() => navigation.navigate('Animation101')}>
+            <View style={styles.displayRowCenter}>
+                <View style={[styles.option, styles.displayRowCenter]}>
+                    <Icon name={item.icon} size={20} color={"#949292"} style={{ marginRight: 10 }} />
+                    <Text style={globalStyles.label}>{item.name}</Text>
+                </View>
+                <Icon name="chevron-forward-outline" color={"#949292"}></Icon>
             </View>
-            <Icon name="chevron-forward-outline" color={"#949292"}></Icon>
-        </View>
+        </TouchableOpacity>
     }
 
     const listHeader = () => {
@@ -41,9 +46,11 @@ export const MenuList = ({ menuItems, title }: MenuProps) => {
 
 const styles = StyleSheet.create({
     option: {
-        flexDirection: 'row',
-        alignItems: 'center',
         flex: 1,
         marginVertical: 2.5,
+    },
+    displayRowCenter: {
+        flexDirection: 'row',
+        alignItems: 'center',
     }
 })
