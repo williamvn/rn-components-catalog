@@ -25,5 +25,10 @@ export const menuItems: MenuOption[] = [
         name: "Text Input",
         icon: "create-outline",
         component: "TextInputScreen"
+    },
+    {
+        name: "Forms",
+        icon: "cube-outline",
+        component: "FormsScreen"
     }
 ];
