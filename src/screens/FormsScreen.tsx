@@ -39,11 +39,13 @@ export const FormsScreen = () => {
                         </View>
                     </View>
                     {/* Hiden by keyboard not solution T_T*/}
-                    <View style={styles.sendBox}> 
+                    <View style={styles.sendBox}>
                         <View style={{ flex: 1 }}><CustomInput title='Feedback' valueChange={(v) => console.log(v)} /></View>
                         <TouchableOpacity style={styles.sendButton}><Text><Icon name="send-sharp" color={"white"} size={22}></Icon></Text></TouchableOpacity>
                     </View>
-                    {/* <View style={{ height: 450 }} /> */}
+                    {/* With this the problem gets fix in my mobile, but it looks that this kind of issues are solved better using external lib 
+                       react-native-keyboard-aware-scroll-view or handling the onFocus to add margins or spacers */}
+                    {/* <View style={{ height: 150 }} /> */}
                 </ScrollView>
             </TouchableWithoutFeedback>
         </KeyboardAvoidingView>
