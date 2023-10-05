@@ -30,5 +30,10 @@ export const menuItems: MenuOption[] = [
         name: "Forms",
         icon: "cube-outline",
         component: "FormsScreen"
+    },
+    {
+        name: "Pull to refresh",
+        icon: "refresh-circle-outline",
+        component: "PullToRefreshScreen"
     }
 ];

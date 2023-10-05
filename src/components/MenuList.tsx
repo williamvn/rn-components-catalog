@@ -32,7 +32,7 @@ export const MenuList = ({ menuItems, title }: MenuProps) => {
     }
 
     return (
-        <View style={{ flex: 0.3, margin: 20 }}>
+        <View style={{ flex: 1, margin: 20 }}>
             <FlatList
                 data={menuItems}
                 renderItem={({ item }) => renderMenuItem(item)}
@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
     },
     displayRowCenter: {
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'center'
     }
 })
