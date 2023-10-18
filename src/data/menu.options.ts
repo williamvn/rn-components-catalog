@@ -45,6 +45,11 @@ export const menuItems: MenuOption[] = [
         name: "Modal",
         icon: "square-outline",
         component: "ModalScreen"
+    },
+    {
+        name: "Infinity Scroll",
+        icon: "infinite-outline",
+        component: "InfinityScrollScreen"
     }
     
 ];
