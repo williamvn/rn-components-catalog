@@ -7,6 +7,7 @@ import { AlertScreen } from '../screens/AlertScreen';
 import { TextInputScreen } from '../screens/TextInputScreen';
 import { FormsScreen } from '../screens/FormsScreen';
 import { PullToRefreshScreen } from '../screens/PullToRefreshScreen';
+import { SectionListScreen } from '../screens/SectionListScreen';
 
 export type RootStackParamList = {
   HomeScreen: undefined,
@@ -17,6 +18,7 @@ export type RootStackParamList = {
   TextInputScreen: undefined
   FormsScreen: undefined,
   PullToRefreshScreen: undefined
+  SectionListScreen: undefined
 }
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -32,6 +34,7 @@ export const StackNavigator = () => {
       <Stack.Screen name="TextInputScreen" component={TextInputScreen} />
       <Stack.Screen name="FormsScreen" component={FormsScreen} />
       <Stack.Screen name="PullToRefreshScreen" component={PullToRefreshScreen} />
+      <Stack.Screen name="SectionListScreen" component={SectionListScreen} />
     </Stack.Navigator>
   );
 }
