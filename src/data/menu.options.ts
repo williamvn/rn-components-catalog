@@ -40,6 +40,11 @@ export const menuItems: MenuOption[] = [
         name: "Section List",
         icon: "list-outline",
         component: "SectionListScreen"
+    },
+    {
+        name: "Modal",
+        icon: "square-outline",
+        component: "ModalScreen"
     }
     
 ];
