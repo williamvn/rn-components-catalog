@@ -55,5 +55,10 @@ export const menuItems: MenuOption[] = [
         name: "Slide Presentation",
         icon: "albums-outline",
         component: "SlideScreen"
+    },
+    {
+        name: "Funny Buttons",
+        icon: "beer-outline",
+        component: "FunnyButtonsScreen"
     }
 ];

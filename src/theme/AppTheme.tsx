@@ -12,5 +12,8 @@ export const globalStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
-      },
+    },
+    purpleText: {
+        color: "rgba(136, 108, 194, 1)"
+    }
 });
