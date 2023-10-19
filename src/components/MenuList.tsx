@@ -17,10 +17,10 @@ export const MenuList = ({ menuItems, title }: MenuProps) => {
         return <TouchableOpacity activeOpacity={0.2} onPress={() => navigation.navigate(item.component)}>
             <View style={styles.displayRowCenter}>
                 <View style={[styles.option, styles.displayRowCenter]}>
-                    <Icon name={item.icon} size={20} color={"#949292"} style={{ marginRight: 10 }} />
+                    <Icon name={item.icon} size={20} color={"#B19CD9"} style={{ marginRight: 10 }} />
                     <Text style={globalStyles.label}>{item.name}</Text>
                 </View>
-                <Icon name="chevron-forward-outline" color={"#949292"}></Icon>
+                <Icon name="chevron-forward-outline" color={"#B19CD9"}></Icon>
             </View>
         </TouchableOpacity>
     }

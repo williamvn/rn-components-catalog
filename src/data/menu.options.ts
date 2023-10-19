@@ -50,6 +50,10 @@ export const menuItems: MenuOption[] = [
         name: "Infinity Scroll",
         icon: "infinite-outline",
         component: "InfinityScrollScreen"
+    },
+    {
+        name: "Slide Presentation",
+        icon: "albums-outline",
+        component: "SlideScreen"
     }
-    
 ];
