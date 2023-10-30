@@ -1,13 +1,13 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { StackNavigator } from './src/navigators/StackNavigator';
-import { SafeAreaViewComponent } from 'react-native';
+import { ThemeProvider } from './src/contexts/ThemeContext';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <StackNavigator />
-    </NavigationContainer>
+    <ThemeProvider>
+        <StackNavigator />
+    </ThemeProvider>
   )
 }
 

@@ -52,7 +52,7 @@ export const SlideScreen = () => {
 
 
     return (
-        <SafeAreaView style={{ ...globalStyles.centerContainer }}>
+        <SafeAreaView style={{ ...globalStyles.centerContainer, backgroundColor:"white" }}>
             <Carousel
                 data={tutorialData}
                 renderItem={({ item }) => renderItem(item)}

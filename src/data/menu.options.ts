@@ -60,5 +60,10 @@ export const menuItems: MenuOption[] = [
         name: "Funny Buttons",
         icon: "beer-outline",
         component: "FunnyButtonsScreen"
+    },
+    {
+        name: "Theme",
+        icon: "flask-outline",
+        component: "ThemeScreen"
     }
 ];
