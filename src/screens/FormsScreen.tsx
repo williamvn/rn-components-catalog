@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, Keyboard, KeyboardAvoidingView, Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import { CustomInput } from '../components/CustomInput'
 import { useForm } from '../hooks/useForm'
@@ -6,6 +6,7 @@ import { CustomSwitch } from '../components/CustomSwitch';
 import { globalStyles } from '../theme/AppTheme';
 import { StyleSheet } from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
+import { ThemeContext } from '../contexts/ThemeContext';
 
 interface Form {
     username: string;
@@ -22,6 +23,7 @@ const initState: Form = {
 }
 
 export const FormsScreen = () => {
+    const { theme } = useContext(ThemeContext);
     const { onChange, form, isSubcribed } = useForm<Form>(initState);
     return (
         <KeyboardAvoidingView
@@ -35,13 +37,13 @@ export const FormsScreen = () => {
                         <CustomInput title='Phone' placeholder='+ 34' keyboardType='phone-pad' valueChange={(v) => onChange(v, "phone")} />
                         <CustomSwitch title='Subscribe' value={isSubcribed} onChange={(v) => onChange(v, "isSubcribed")} />
                         <View style={{ marginTop: 50 }}>
-                            <Button title='Submit' onPress={() => console.log(form)}></Button>
+                            <Button title='Submit' onPress={() => console.log(form)} color={theme.colors.card}></Button>
                         </View>
                     </View>
                     {/* Hiden by keyboard not solution T_T*/}
                     <View style={styles.sendBox}>
                         <View style={{ flex: 1 }}><CustomInput title='Feedback' valueChange={(v) => console.log(v)} /></View>
-                        <TouchableOpacity style={styles.sendButton}><Text><Icon name="send-sharp" color={"white"} size={22}></Icon></Text></TouchableOpacity>
+                        <TouchableOpacity style={{...styles.sendButton, backgroundColor: theme.colors.card}}><Text><Icon name="send-sharp" color={"white"} size={22}></Icon></Text></TouchableOpacity>
                     </View>
                     {/* With this the problem gets fix in my mobile, but it looks that this kind of issues are solved better using external lib 
                        react-native-keyboard-aware-scroll-view or handling the onFocus to add margins or spacers */}
@@ -76,7 +78,6 @@ const styles = StyleSheet.create({
         padding: 10,
         paddingLeft: 17,
         height: 41,
-        backgroundColor: "#3498db",
         marginTop: 15,
         marginLeft: 10
     }

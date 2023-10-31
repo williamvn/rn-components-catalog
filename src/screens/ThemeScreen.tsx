@@ -5,16 +5,16 @@ import { globalStyles } from '../theme/AppTheme';
 import { ThemeContext } from '../contexts/ThemeContext';
 
 export const ThemeScreen = () => {
-    const {theme, setDarkTheme, setLightTheme} = useContext(ThemeContext);
+    const { theme, setDarkTheme, setLightTheme } = useContext(ThemeContext);
 
     return (
         <View style={globalStyles.centerContainer}>
-            <TouchableOpacity onPress={() => theme.currentTheme === 'dark'? setLightTheme(): setDarkTheme()}>
-                <View style={styles.button}>
-                    <Icon name="sunny-outline" color={"black"} size={50}></Icon>
+            <TouchableOpacity onPress={() => theme.currentTheme === 'dark' ? setLightTheme() : setDarkTheme()}>
+                <View style={{ ...styles.button, backgroundColor: theme.currentTheme === 'dark'? theme.colors.card: theme.colors.notification }}>
+                    <Icon name="sunny-outline" color={theme.currentTheme === 'dark'? "white" : "yellow"} size={50}></Icon>
                 </View>
             </TouchableOpacity>
-            <Text>On / Off</Text>
+            <Text style={{color: theme.colors.text}}>On / Off</Text>
         </View>
     )
 }

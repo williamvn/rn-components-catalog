@@ -63,7 +63,7 @@ export const menuItems: MenuOption[] = [
     },
     {
         name: "Theme",
-        icon: "flask-outline",
+        icon: "color-palette-outline",
         component: "ThemeScreen"
     }
 ];

@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Animated, Dimensions, Easing, Image, ImageSourcePropType, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { globalStyles } from '../theme/AppTheme';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from "react-native-vector-icons/Ionicons";
 import { useAnimation } from '../hooks/useAnimation';
+import { useNavigation } from '@react-navigation/native';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 interface Slide {
     img: ImageSourcePropType;
@@ -34,6 +36,8 @@ const { height: screenHeight, width: screenWidth } = Dimensions.get('window');
 
 export const SlideScreen = () => {
     const [activeSlide, setActiveSlide] = useState(0);
+    const navigate = useNavigation<any>();
+    const { theme } = useContext(ThemeContext);
     const { value: arrowXPosition, animateEndlessly: startArrowPositionAnimation } = useAnimation(-2, Easing.bounce);
 
     useEffect(() => {
@@ -42,7 +46,7 @@ export const SlideScreen = () => {
         }
     }, [activeSlide])
 
-    const renderItem = (item: Slide) => <View style={globalStyles.centerContainer}>
+    const renderItem = (item: Slide) => <View style={{...globalStyles.centerContainer, backgroundColor: theme.colors.background}}>
         <Image source={item.img} style={{ width: 350, height: 400, resizeMode: 'center' }} />
         <View style={{ padding: 10 }}>
             <Text style={styles.title}>{item.title}</Text>
@@ -52,7 +56,7 @@ export const SlideScreen = () => {
 
 
     return (
-        <SafeAreaView style={{ ...globalStyles.centerContainer, backgroundColor:"white" }}>
+        <SafeAreaView style={{ ...globalStyles.centerContainer, backgroundColor:theme.colors.background }}>
             <Carousel
                 data={tutorialData}
                 renderItem={({ item }) => renderItem(item)}
@@ -60,13 +64,13 @@ export const SlideScreen = () => {
                 itemWidth={screenWidth}
                 onSnapToItem={setActiveSlide}
             />
-            {activeSlide === tutorialData.length - 1 && <TouchableOpacity style={styles.button}>
-                <Text style={{ color: 'white', fontSize: 15 }}>Start</Text>
+            {activeSlide === tutorialData.length - 1 && <TouchableOpacity style={styles.button} onPress={() => navigate.navigate("HomeScreen")}>
+                <Text style={{ color: "white", fontSize: 15 }}>Start</Text>
                 <Animated.View style={{ transform: [{ translateX: arrowXPosition }] }}>
                     <Icon name="chevron-forward-outline" color={"white"} size={15}></Icon>
                 </Animated.View>
             </TouchableOpacity>}
-            <Pagination dotsLength={tutorialData.length} activeDotIndex={activeSlide} dotStyle={{ backgroundColor: "rgba(136, 108, 194, 1)" }} />
+            <Pagination  dotsLength={tutorialData.length} activeDotIndex={activeSlide} dotStyle={{ backgroundColor: theme.colors.card }} />
         </SafeAreaView>
     )
 }
